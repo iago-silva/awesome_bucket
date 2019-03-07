@@ -11,6 +11,9 @@
 <ul>
   <% @bucket.files.each do |file| %>
     <li>
+      <!-- I would can do this way to use imagemagick to resize the image -->
+      <!-- BUT ONLY WORKS ON IMAGE FILES!!!! -->
+      <%# link_to file.blob.filename, url_for(file.variant(resize: "120x120")) %>
       <%= link_to file.filename, url_for(file) %>
       <%= link_to "X", bucket_file_upload_path(@bucket, file), method: :delete, data: { confirm: "Tem certeza?" } %>
     </li>
