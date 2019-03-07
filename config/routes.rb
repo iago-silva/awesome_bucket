@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :buckets
-  root to: "buckets#index"
+   root to: "buckets#index"
+   resources :buckets do
+     resources :file_uploads, only: [:new, :create, :destroy]
+   end
 end
